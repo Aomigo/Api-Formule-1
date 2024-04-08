@@ -1,0 +1,523 @@
+body {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+p {
+    text-align: center;
+}
+
+.menu {
+    width: 100%;
+    height: 150px;
+    background-color: #E10600;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo {
+    height: 70px;
+    margin-top: 10px;
+}
+
+fieldset {
+    border: none;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+
+.fa-solid {
+    position: relative;
+    left: 30px;
+}
+input {
+    border-radius: 30px;
+    background-color: white;
+    border: 1px solid black;
+    width: 300px;
+    height: 30px;
+}
+
+input::placeholder {
+    color: black;
+    font-size: small;
+    text-align: center;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+nav {
+    width: 100%;
+    margin: auto;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-around;
+    padding-right: 60px;
+}
+
+header li a {
+    display: inline-block;
+    margin: 0 5px ;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.winner-fastest-time {
+    padding-top: 20px;
+}
+
+.race-location {
+    text-align: center;
+}
+
+.news-winner {
+    width: 350px;
+    height: 450px;
+    border: 1.5px solid black;
+    border-radius: 15px 15px 0 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.news-winner:before {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.4;
+    background: url("../images/winner-bgr.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px 15px 0 0;
+}
+
+
+.winner-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    bottom: 358px;
+}
+
+.actual-winner,
+.second-winner,
+.third-winner,
+.last-loser {
+    height: 110px;
+    width: 170px;
+
+}
+
+.actual-winner {
+    height: 240px;
+    width: 360px;
+    margin: 0 0 50px 10px;
+}
+
+.second-winner,
+.third-winner,
+.last-loser {
+    position: relative;
+    bottom: 10px;
+}
+
+ul {
+    margin: 6px 0 0 0;
+    list-style: none;
+}
+
+main li p {
+    margin: 0 10px;
+}
+
+.name {
+    font-style: bold;
+}
+
+.news-finishers {
+    border: 1.5px solid black;
+    border-radius: 0 0 15px 15px;
+    height: 500px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.second-finisher,
+.third-finisher,
+.last-finisher {
+    width: 300px;
+    margin: 20px auto;
+    height: 100px;
+    background: url("../images/winner-bgr.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.ranking {
+    position: relative;
+    top: 20px;
+}
+
+.ranking-first {
+    position: relative;
+    right: 120px;
+    top: 80px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.weather-logo {
+    height: 70px;
+}
+
+.weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.ecuries div {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    border: 1px solid black;
+    margin-right: auto;
+    margin-left: auto;
+    transition: 0.5s;
+}
+
+.ecuries {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap ;
+}
+
+.ecuries div:hover {
+    background-color: black;
+    opacity: 0.4;
+    border: 1px solid black;
+    color: white;
+}
+
+.alpine-btn,
+.aston-martin-btn,
+.ferrari-btn,
+.haas-btn,
+.mclaren-btn,
+.mercedes-btn,
+.racing-bulls-btn,
+.red-bull-btn,
+.stake-btn,
+.williams-btn {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.4;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px 15px 0 0;
+    background-repeat: no-repeat;
+}
+
+.alpine-btn {
+    background: url("../images/alpine.png");
+}
+
+.aston-martin-btn {
+    background: url("../images/astonmartin.png");
+}
+
+.ferrari-btn {
+    background: url("../images/ferrari.png");
+}
+
+.haas-btn {
+    background: url("../images/haas.png");
+}
+
+.mclaren-btn {
+    background: url("../images/mclaren.png");
+}
+
+.mercedes-btn {
+    background: url("../images/mercedes.png");
+}
+
+.racing-bulls-btn {
+    background: url("../images/redbullracing.png");
+}
+
+.red-bull-btn {
+    background: url("../images/redbull.png");
+}
+
+.stake-btn {
+    background: url("../images/kick.png");
+}
+
+.williams-btn {
+    background: url("../images/williams.png");
+}
+
+.title {
+    border: 1.5px solid black;
+    width: 350px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px 15px 0 0;
+    background-position: center;
+    background-size: cover;
+    margin-top: 0;
+    position: relative;
+    bottom: 950px;
+}
+
+.title p {
+    margin-top: 120px;
+}
+
+.ferrari-title {
+    background: url("../images/ferrari.png");
+}
+
+.alpine-title {
+    background: url("../images/alpine.png");
+}
+
+.aston-martin-title {
+    background: url("../images/astonmartin.png");
+}
+
+.haas-title {
+    background: url("../images/haas.png");
+}
+
+.mclaren-title {
+    background: url("../images/mclaren.png");
+}
+
+.mercedes-title {
+    background: url("../images/mercedes.png");
+}
+
+.racing-bulls-title {
+    background: url("../images/redbullracing.png");
+}
+
+.red-bull-title {
+    background: url("../images/redbull.png");
+}
+
+.stake-title {
+    background: url("../images/kick.png");
+}
+
+.williams-title {
+    background: url("../images/williams.png");
+}
+
+.ecurie-desc {
+    width: 350px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1.5px solid black;
+    border-radius: 0 0 15px 15px;
+    position: relative;
+    bottom: 950px;
+}
+
+.ecurie-drivers {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    text-align: center;
+}
+
+.carlos,
+.leclerc,
+.gasly,
+.ocon,
+.alonzo,
+.stroll,
+.magnussen,
+.hulkenberg,
+.lando,
+.piastri,
+.hamilton,
+.russel,
+.ricciardo,
+.tsunoda,
+.verstappen,
+.perez,
+.bottas,
+.zhou,
+.sargeant,
+.albon {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 50px;
+    color: rgb(27, 209, 255);
+    font-size: 20px;
+    background-color: black;
+    text-align: center;
+}
+
+
+.carlos {
+    background: url("../images/ferrari-carlos.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.leclerc{
+    background: url("../images/ferrari-leclerc.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.gasly {
+    background: url("../images/alpine-gasly.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.ocon {
+    background: url("../images/alpine-ocon.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.alonzo {
+    background: url("../images/aston-alonzo.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.stroll {
+    background: url("../images/aston-stroll.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.magnussen {
+    background: url("../images/haas-magnussen.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.hulkenberg {
+    background: url("../images/haas-hulkenberg.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.lando {
+    background: url("../images/mclaren-norris.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.piastri {
+    background: url("../images/mclaren-piastri.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.hamilton {
+    background: url("../images/mercedes-hamilton.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.russel {
+    background: url("../images/mercedes-russel.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.ricciardo {
+    background: url("../images/redbullracing-ricciardo.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.tsunoda {
+    background: url("../images/redbullracing-tsunoda.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.verstappen {
+    background: url("../images/redbull-verstappen.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.perez {
+    background: url("../images/redbull-perez.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.zhou {
+    background: url("../images/stake-zhou.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.bottas {
+    background: url("../images/stake-bottas.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.sargeant {
+    background: url("../images/williams-sargeant.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.albon {
+    background: url("../images/williams-albon.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.ecurie-palmares {
+    text-align: center;
+    margin-top: 30px;
+}
