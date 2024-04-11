@@ -26,7 +26,7 @@ function addResult(e) {
     strongElement.textContent = driver.position;
 
     const imgElement = document.createElement('img');
-    imgElement.src = `./asset/img/C/FichePilote/${driver.Driver.familyName}.png`; 
+    imgElement.src = `./asset/img/C/FichePilote/${driver.Driver.familyName}.png`;
     imgElement.alt = `${driver.position} place`;
 
     const pElement = document.createElement('p');
@@ -46,8 +46,64 @@ function addResult(e) {
 
     otherDriversContainer.appendChild(driverElement);
   });
-
 }
+
+function resetTranslation() {
+  translation = 0;
+  const otherDrivers = document.querySelector('.other-drivers');
+  otherDrivers.style.transform = 'translateX(0)';
+}
+
+const Previous = document.querySelector('.previousSlide');
+const Next = document.querySelector('.nextSlide');
+let translation = 0;
+
+function PreviousSlide(e) {
+  if (window.innerWidth >= 600 && translation < 0) {
+    translation += 352;
+    const otherDrivers = document.querySelector('.other-drivers');
+    otherDrivers.style.transform = `translateX(${translation}px)`;
+    console.log(translation);
+    Previous.classList.remove('hidden');
+  }
+
+  if (translation === 0) {
+    Next.classList.add('hidden');
+  }
+}
+
+function NextSlide(e) {
+  if (window.innerWidth >= 600 && translation > -6336) {
+    Next.classList.remove('hidden');
+    translation -= 352;
+    const otherDrivers = document.querySelector('.other-drivers');
+    otherDrivers.style.transform = `translateX(${translation}px)`;
+    console.log(translation);
+  }
+
+  if (translation === -6336) {
+    Previous.classList.add('hidden');
+  } else {
+    Previous.classList.remove('hidden');
+  }
+}
+
+Next.addEventListener('click', () => {
+  PreviousSlide()
+});
+
+Previous.addEventListener('click', () => {
+  NextSlide()
+});
+
+setInterval(NextSlide, 5000)
+
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth < 600) {
+    resetTranslation();
+  }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch('http://ergast.com/api/f1/current/last/results.json')
