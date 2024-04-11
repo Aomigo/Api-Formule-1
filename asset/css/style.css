@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Mitr:wght@200;300;400;500;600;700&display=swap');
 
+/* 
+
+@media screen and (min-width: 600px) {
+
+}
+
+@media screen and (min-width: 992px) {
+
+} 
+
+*/
+
 html {
   scroll-behavior: smooth;
 }
@@ -30,11 +42,27 @@ header {
     padding: 0;
     width: 100%;
     list-style: none;
+
+    @media screen and (min-width: 600px) {
+      margin-left: 100px;
+    }
+    
+    @media screen and (min-width: 992px) {
+      margin-left: 200px;
+    } 
   }
 }
 
 .links {
   width: 100%;
+
+  @media screen and (min-width: 600px) {
+    width: 450px;
+  }
+  
+  @media screen and (min-width: 992px) {
+    width: 550px;
+  } 
 }
 
 .links ul a {
@@ -60,6 +88,24 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+    position: relative;
+  }
+
+  img {
+    @media screen and (min-width: 600px) {
+      width: 250px;
+      position: absolute;
+      left: 40px;
+    }
+    
+    @media screen and (min-width: 992px) {
+      width: 300px;
+      left: 75px;
+    }  
+  }
 }
 
 .search-bar {
@@ -69,6 +115,15 @@ header {
   padding: 15px;
   border-radius: 20px;
   height: 50px;
+
+  @media screen and (min-width: 600px) {
+    position: absolute;
+    right: 40px;
+  }
+
+  @media screen and (min-width: 992px) {
+    right: 75px;
+  }  
 
   label {
     font-size: 35px;
@@ -82,8 +137,16 @@ header {
     font-size: 15px;
     color: #000;
 
+    @media screen and (min-width: 600px) {
+      font-size: 17px;
+    }
+    
+    @media screen and (min-width: 992px) {
+      font-size: 19px;
+    } 
+
     &::-webkit-input-placeholder {
-      font-size: 13px;
+      font-size: 13px ;
       text-transform: uppercase;
       vertical-align: middle;
     }
@@ -122,11 +185,31 @@ h1 {
   justify-content: space-evenly;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
+  @media screen and (min-width: 600px) {
+    height: 375px;
+    margin: 0 20px;
+    flex-direction: row;
+  }
+  
+  @media screen and (min-width: 992px) {
+  
+  } 
+
   img {
     width: 300px;
     height: 500px;
     object-fit: cover;
     object-position: center;
+
+    @media screen and (min-width: 600px) {
+      width: 250px;
+      height: 100%;
+    }
+    
+    @media screen and (min-width: 992px) {
+      width: 405px;
+      height: 100%;
+    } 
   }
 
   div {
@@ -138,11 +221,29 @@ h1 {
     text-align: center;
     justify-content: space-evenly;
 
+    @media screen and (min-width: 600px) {
+      flex-direction: column;
+      width: fit-content;
+      width: 250px;
+    }
+    
+    @media screen and (min-width: 992px) {
+      width: 400px;
+    } 
+
     p {
       font-size: 45px;
       text-align: center;
       font-weight: 400;
       margin: 0;
+
+      @media screen and (min-width: 600px) {
+        font-size: 25px;
+      }
+      
+      @media screen and (min-width: 992px) {
+        font-size: 45px;
+      } 
     }
 
     h2 {
@@ -151,6 +252,14 @@ h1 {
       font-weight: 400;
       font-weight: bold;
       margin: 0;
+
+      @media screen and (min-width: 600px) {
+        font-size: 25px;
+      }
+      
+      @media screen and (min-width: 992px) {
+        font-size: 45px;
+      } 
     }
   }
 
@@ -164,20 +273,62 @@ h1 {
     position: absolute;
     top: 5px;
     left: 15px;
+
+    @media screen and (min-width: 600px) {
+
+    }
+    
+    @media screen and (min-width: 992px) {
+    
+    } 
   }
 
   .timeW {
     font-size: 45px;
     color: #FF8000;
+
+    @media screen and (min-width: 600px) {
+      font-size: 25px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+    
+    @media screen and (min-width: 992px) {
+      font-size: 35px;
+    } 
   }
 
   strong:last-child {
     font-size: 95px;
     font-weight: bold;
     font-family: "Mitr", sans-serif;
+    text-align: center;
     text-decoration: underline;
     text-underline-offset: 5px;
+
+    @media screen and (min-width: 600px) {
+      font-size: 75px;
+      width: 250px;
+    }
+    
+    @media screen and (min-width: 992px) {
+      font-size: 95px;
+      width: 400px;
+    } 
   }
+}
+
+.overflow {
+  width: 100%;
+  
+  @media screen and (min-width: 600px) {
+    overflow: hidden;
+  }
+  
+  @media screen and (min-width: 992px) {
+  
+  } 
 }
 
 .other-drivers {
@@ -186,6 +337,16 @@ h1 {
   flex-direction: column;
   height: max-content;
   margin: 50px auto;
+
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+    width: fit-content;
+    margin-left: 15px;
+  }
+  
+  @media screen and (min-width: 992px) {
+  
+  } 
 
   .drivers-wrap {
     width: 350px;
@@ -203,6 +364,14 @@ h1 {
     &:hover {
       scale: 1.07;
     }
+
+    @media screen and (min-width: 600px) {
+      margin: 0 15px
+    }
+    
+    @media screen and (min-width: 992px) {
+    
+    } 
 
     strong {
       font-size: 55px;
