@@ -22,7 +22,7 @@ function addResult(e) {
 
   winnerFirstName.textContent = `${winner.Driver.givenName}`;
   winnerLastName.textContent = `${winner.Driver.familyName}`;
-  winnerImageElement.src = `./asset/img/C/FichePilote/${winner.Driver.familyName.toLowerCase()}.png`;
+  winnerImageElement.src = `../asset/img/C/FichePilote/${winner.Driver.familyName.toLowerCase()}.png`;
   winnerTimeElement.textContent = winner.Time.time;
   winnerPositionElement.textContent = winner.position;
 
@@ -35,9 +35,9 @@ function addResult(e) {
     driverElement.classList.add("drivers-wrap");
     pElement.classList.add("time");
 
-    driverElement.style.backgroundImage = `url(./asset/img/C/F1Flag/${driver.Driver.nationality.toLowerCase()}.png)`;
+    driverElement.style.backgroundImage = `url(../asset/img/C/F1Flag/${driver.Driver.nationality.toLowerCase()}.png)`;
     strongElement.textContent = driver.position;
-    imgElement.src = `./asset/img/C/FichePilote/${driver.Driver.familyName}.png`;
+    imgElement.src = `../asset/img/C/FichePilote/${driver.Driver.familyName}.png`;
     imgElement.alt = `${driver.position} place`;
 
     // Vérifier si le temps est disponible
