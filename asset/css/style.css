@@ -178,7 +178,7 @@ h1 {
 
 .driver-winner {
   background: url(../img/finish-flag.jpg) top;
-  background-size: cover;
+  background-size: 100%;
   border-radius: 25px;
   border: 2px solid #000;
   margin: 0 15px;
@@ -350,13 +350,8 @@ h1 {
     flex-direction: row;
     width: fit-content;
     margin-left: 15px;
-    transform: 0.3s;
     transition: 0.3s;
   }
-  
-  @media screen and (min-width: 992px) {
-  
-  } 
 
   .drivers-wrap {
     width: 350px;
@@ -420,11 +415,11 @@ h1 {
   }
   
   .nextSlide {
-    left: 15px;
+    right: 15px;
   }
   
   .previousSlide {
-    right: 15px;
+    left: 15px;
   }
 }
 

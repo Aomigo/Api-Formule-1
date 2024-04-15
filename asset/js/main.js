@@ -1,5 +1,7 @@
+const otherDriversContainer = document.querySelector("#other-drivers");
 const Previous = document.querySelector(".previousSlide");
 const Next = document.querySelector(".nextSlide");
+Previous.classList.add('hidden')
 
 let translation = 0;
 
@@ -7,13 +9,16 @@ function addResult(e) {
   let race = e.MRData.RaceTable.Races[0];
   let winner = race.Results[0];
   let otherDrivers = race.Results.slice(1);
+  console.log(e);
 
+  const raceName = document.querySelector('.gp-name')
   const winnerFirstName = document.querySelector("#winner-first-name");
   const winnerLastName = document.querySelector("#winner-last-name");
   const winnerImageElement = document.querySelector("#winner-image");
   const winnerTimeElement = document.querySelector("#winner-time");
   const winnerPositionElement = document.querySelector("#winner-position");
-  const otherDriversContainer = document.querySelector("#other-drivers");
+
+  raceName.textContent = `${race.raceName}` 
 
   winnerFirstName.textContent = `${winner.Driver.givenName}`;
   winnerLastName.textContent = `${winner.Driver.familyName}`;
@@ -23,18 +28,17 @@ function addResult(e) {
 
   otherDrivers.forEach((driver) => {
     const driverElement = document.createElement("div");
-    driverElement.classList.add("drivers-wrap");
-    driverElement.style.backgroundImage = `url(./asset/img/C/F1Flag/${driver.Driver.nationality.toLowerCase()}.png)`;
-
     const strongElement = document.createElement("strong");
-    strongElement.textContent = driver.position;
-
     const imgElement = document.createElement("img");
+    const pElement = document.createElement("p");
+
+    driverElement.classList.add("drivers-wrap");
+    pElement.classList.add("time");
+
+    driverElement.style.backgroundImage = `url(./asset/img/C/F1Flag/${driver.Driver.nationality.toLowerCase()}.png)`;
+    strongElement.textContent = driver.position;
     imgElement.src = `./asset/img/C/FichePilote/${driver.Driver.familyName}.png`;
     imgElement.alt = `${driver.position} place`;
-
-    const pElement = document.createElement("p");
-    pElement.classList.add("time");
 
     // Vérifier si le temps est disponible
     if (driver.Time && driver.Time.time) {
@@ -52,59 +56,73 @@ function addResult(e) {
   });
 }
 
+function getTotalWidth() {
+  const driverWraps = document.querySelectorAll('.drivers-wrap');
+  let totalWidth = 0;
+
+  driverWraps.forEach(driverWrap => {
+    totalWidth += driverWrap.offsetWidth + 30;
+  });
+
+  return totalWidth;
+}
+
 function resetTranslation() {
   translation = 0;
-  const otherDrivers = document.querySelector(".other-drivers");
-  otherDrivers.style.transform = "translateX(0)";
+  const otherDrivers = document.querySelector('.other-drivers');
+  otherDrivers.style.transform = 'translateX(0)';
 }
 
-function PreviousSlide(e) {
-  if (window.innerWidth >= 600 && translation < 0) {
-    translation += 352;
-    const otherDrivers = document.querySelector(".other-drivers");
+function updateTranslation() {
+  const otherDrivers = document.querySelector('.other-drivers');
+  const totalWidth = getTotalWidth();
+  const maxTranslation = totalWidth - window.innerWidth + 25;
+  Next.classList.remove('hidden')
+
+  if(translation != 0) {
+    Previous.classList.remove('hidden')
+  } else if(translation = 350) {
+    Previous.classList.add('hidden')
+  }
+
+  if (maxTranslation > 0) {
+    if (translation > 0) {
+      translation = 0;
+      Previous.classList.add('hidden')
+    } else if (translation < -maxTranslation) {
+      translation = -maxTranslation;
+      Next.classList.add('hidden')
+    }
+
     otherDrivers.style.transform = `translateX(${translation}px)`;
-    console.log(translation);
-    Previous.classList.remove("hidden");
-  }
-
-  if (translation === 0) {
-    Next.classList.add("hidden");
-  }
-}
-
-function NextSlide(e) {
-  const otherDrivers = document.querySelector(".other-drivers");
-  const maxWidth = -(otherDrivers.children.length * 350) + 350;
-
-  if (window.innerWidth >= 600 && translation > maxWidth + 350) {
-    Next.classList.remove("hidden");
-    translation -= 352;
-
-    otherDrivers.style.transform = `translateX(${translation}px)`;
-  }
-
-  if (translation === -5984) {
-    Previous.classList.add("hidden");
   } else {
-    Previous.classList.remove("hidden");
+    resetTranslation();
   }
 }
 
-Next.addEventListener("click", () => {
-  PreviousSlide();
-});
+function NextSlide() {
+  translation -= 350;
+  updateTranslation();
+}
 
-Previous.addEventListener("click", () => {
-  NextSlide();
-});
+function PreviousSlide() {
+  translation += 350;
+  updateTranslation();
+}
 
-setInterval(NextSlide, 5000);
+Next.addEventListener('click', NextSlide);
+Previous.addEventListener('click', PreviousSlide);
+
+window.addEventListener('resize', updateTranslation);
 
 window.addEventListener("resize", () => {
   if (window.innerWidth < 600) {
     resetTranslation();
   }
 });
+
+setInterval(NextSlide, 5000)
+
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch("http://ergast.com/api/f1/current/last/results.json")
