@@ -1,0 +1,92 @@
+ /* <Main */
+
+ main {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+ }
+
+ .driver {
+  width: 630px;
+  height: 500px;
+  margin: 25px;
+ }
+
+ .infos-driver {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid var(--color-black);
+  border-left: none;
+  border-right: none;
+  height: 100px;
+  padding: 15px 0;
+
+  .name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    height: 75px;
+    padding-left: 15px;
+    border-left: 5px solid var(--color-red);
+
+    p {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    strong {
+      font-size: 25px;
+    }
+  }
+
+  .driver-flag {
+    background: url(../img/C/F1Flag/Spanish.png) center;
+    background-size: cover;
+    border: 1px solid var(--color-black);
+    border-radius: 10px;
+    height: 65px;
+    width: 100px;
+  }
+ }
+
+ .driver-page {
+  position: relative;
+  height: 350px;
+
+  .driver-team {
+    position: absolute;
+    top: 0;
+  }
+
+  img:first-of-type {
+    width: 500px;
+    height: 300px;
+    object-fit: contain;
+    object-position: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  } 
+
+  img:last-of-type {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+ }
+
+
+
+ /* img:first-of-type {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}  */
+
+
+
+
+ /* Main> */

@@ -3,13 +3,25 @@ const Previous = document.querySelector(".previousSlide");
 const Next = document.querySelector(".nextSlide");
 Previous.classList.add('hidden')
 
+const teamColors = {
+  'mercedes': '#00D2BE',
+  'ferrari': '#DC0000',
+  'red bull': '#1E41FF',
+  'mclaren': '#FF8700',
+  'astonmartin': '#006F62',
+  'alpine': '#0090FF',
+  'alphatauri': '#2B4562',
+  'alfaromeo': '#900000',
+  'haas': '#FFFFFF',
+  'williams': '#0082FA'
+};
+
 let translation = 0;
 
 function addResult(e) {
   let race = e.MRData.RaceTable.Races[0];
   let winner = race.Results[0];
   let otherDrivers = race.Results.slice(1);
-  console.log(e);
 
   const raceName = document.querySelector('.gp-name')
   const winnerFirstName = document.querySelector("#winner-first-name");
@@ -18,13 +30,20 @@ function addResult(e) {
   const winnerTimeElement = document.querySelector("#winner-time");
   const winnerPositionElement = document.querySelector("#winner-position");
 
-  raceName.textContent = `${race.raceName}` 
-
+  raceName.textContent = `${race.raceName} :` 
+  
   winnerFirstName.textContent = `${winner.Driver.givenName}`;
   winnerLastName.textContent = `${winner.Driver.familyName}`;
   winnerImageElement.src = `../asset/img/C/FichePilote/${winner.Driver.familyName.toLowerCase()}.png`;
   winnerTimeElement.textContent = winner.Time.time;
   winnerPositionElement.textContent = winner.position;
+
+  if (teamColors.hasOwnProperty(winner.Constructor.name.toLowerCase())) {
+    const color = teamColors[winner.Constructor.name.toLowerCase()];
+    winnerTimeElement.style.color = color;
+  }  
+
+  console.log(winner.Constructor.name.toLowerCase());
 
   otherDrivers.forEach((driver) => {
     const driverElement = document.createElement("div");
@@ -40,7 +59,7 @@ function addResult(e) {
     imgElement.src = `../asset/img/C/FichePilote/${driver.Driver.familyName}.png`;
     imgElement.alt = `${driver.position} place`;
 
-    // Vérifier si le temps est disponible
+    // Time Check
     if (driver.Time && driver.Time.time) {
       pElement.textContent = `${driver.Time.time}`;
     } else {

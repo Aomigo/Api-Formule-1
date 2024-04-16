@@ -1,4 +1,3 @@
-
 /* <Main */
 
 main {
@@ -76,7 +75,7 @@ main {
   align-items: center;
   justify-content: center;
   padding: 15px;
-  animation-duration: 20s;
+  animation-duration: 10s;
   transition: 0.5s;
 
   a {
@@ -91,9 +90,4 @@ main {
   }
 }
 
-
-
-
 /* Main> */
-
-

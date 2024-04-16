@@ -12,6 +12,30 @@
 
 */
 
+:root {
+  /* Teams */
+  --color-mercedes: #00D2BE;
+  --color-ferrari: #DC0000;
+  --color-redbull: #1E41FF;
+  --color-mclaren: #FF8700;
+  --color-astonmartin: #006F62;
+  --color-alpine: #0090FF;
+  --color-alphatauri: #2B4562;
+  --color-alfaromeo: #900000;
+  --color-haas: #FFFFFF;
+  --color-williams: #0082FA;
+
+  /* Custom */
+  --color-lightpink: #DC07FF;
+  --color-black: #1F1F27;
+  --color-darkblack: #15151E;
+  --color-white: #fff;
+  --color-red: #E10600;
+  --color-purple: #501D83;
+}
+
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -71,7 +95,7 @@ header {
 }
 
 .links ul a {
-  color: #000;
+  color: var(--color-black);
   text-decoration: none;
   transition: 0.3s;
 
@@ -87,7 +111,7 @@ header {
 }
 
 .search-bar__wrap {
-  background-color: #E10600;
+  background-color: var(--color-red);
   height: 180px;
   display: flex;
   flex-direction: column;
@@ -114,7 +138,7 @@ header {
 }
 
 .search-bar {
-  background-color: #fff;
+  background-color: var(--color-white);
   display: flex;
   align-items: center;
   padding: 15px;
@@ -140,7 +164,7 @@ header {
     line-height: 25px;
     border-radius: 6px;
     font-size: 15px;
-    color: #000;
+    color: var(--color-black);
 
     @media screen and (min-width: 600px) {
       font-size: 17px;
@@ -180,7 +204,7 @@ h1 {
   background: url(../img/finish-flag.jpg) top;
   background-size: 100%;
   border-radius: 25px;
-  border: 2px solid #000;
+  border: 2px solid var(--color-black);
   margin: 0 15px;
   height: 900px;
   position: relative;
@@ -269,8 +293,8 @@ h1 {
   }
 
   .tag-winner {
-    text-shadow: -1px 2px 3px #E10600;
-    color: #E10600;
+    text-shadow: -1px 2px 3px var(--color-red);
+    color: var(--color-red);
     font-weight: bold;
     font-size: 25px;
     text-transform: uppercase;
@@ -290,7 +314,7 @@ h1 {
 
   .timeW {
     font-size: 45px;
-    color: #FF8000;
+    color: var(--color-lightpink);
 
     @media screen and (min-width: 600px) {
       font-size: 25px;
@@ -407,7 +431,7 @@ h1 {
     width: 50px;
     height: 50px;
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    color: var(--color-white);
     border: none;
     outline: none;
     cursor: pointer;

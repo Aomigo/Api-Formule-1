@@ -2,6 +2,7 @@ const creatorContainer = document.querySelector('.creator__wrap');
 
 DevOn.forEach(dev => {
   const creatorDiv = document.createElement('div');
+  const ppLink = document.createElement('a');
   const ppDiv = document.createElement('div');
   const strongElement = document.createElement('a');
   const pElement = document.createElement('p');
@@ -11,13 +12,18 @@ DevOn.forEach(dev => {
   strongElement.classList.add('name');
   pElement.classList.add('work');
 
+  ppLink.href = dev.link;
+  ppLink.target = "_blank";
+
   ppDiv.style.backgroundImage = `url(${dev.pp})`;
+
   strongElement.textContent = dev.Pseudo;
   strongElement.href = dev.link;
-  strongElement.target = '_blank';
+  strongElement.target = "_blank";
   pElement.textContent = dev.Work.join(', ');
 
-  creatorDiv.appendChild(ppDiv);
+  ppLink.appendChild(ppDiv);
+  creatorDiv.appendChild(ppLink);
   creatorDiv.appendChild(strongElement);
   creatorDiv.appendChild(pElement);
 
