@@ -78,7 +78,18 @@
 
    .driver-team {
      position: absolute;
+     color: var(--color-black);
+     text-decoration: none;
+     margin: 15px 0;
      top: 0;
+     transition: 0.3s ease;
+
+     &:hover {
+      transform: translateX(10px);
+      color: blue;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
    }
 
    img:first-of-type {

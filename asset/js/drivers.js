@@ -9,11 +9,13 @@ const teamColors = {
   'alpine': '#0090FF',
   'sauber': '#17f254',
   'rb': '#1c3ace',
-  'haas': '#00000',
+  'haas': '#0003',
   'williams': '#0082FA'
 };
 
-function addTeamName(driver, team, apiName, divBorderColor, driverInfos) {
+function addTeamName(driver, team, apiName, divBorderColor) {
+  team.textContent = 'Loading';
+
   fetch(`${apiUrl}${apiName}.json`)
     .then((response) => response.json())
     .then((data) => {
@@ -21,6 +23,8 @@ function addTeamName(driver, team, apiName, divBorderColor, driverInfos) {
       RaceResults.forEach((result) => {
         if (result.Driver.familyName.toLowerCase() === driver.toLowerCase()) {
           team.textContent = result.Constructor.name;
+          team.href = result.Constructor.url;
+          team.target = "_blank"
           if (teamColors.hasOwnProperty(result.Constructor.constructorId.toLowerCase())) {
             const color = teamColors[result.Constructor.constructorId.toLowerCase()];
             divBorderColor.style.borderColor = color;
@@ -30,6 +34,7 @@ function addTeamName(driver, team, apiName, divBorderColor, driverInfos) {
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
+      team.textContent = 'Error'
     });
 }
 
@@ -42,7 +47,7 @@ function createDriverElement(driverData) {
   const lastNameStrong = document.createElement('strong');
   const driverFlagDiv = document.createElement('div');
   const driverPageDiv = document.createElement('div');
-  const driverTeamP = document.createElement('p');
+  const driverTeamP = document.createElement('a');
   const driverImage = document.createElement('img');
   const driverNumberImage = document.createElement('img');
 
@@ -62,7 +67,7 @@ function createDriverElement(driverData) {
     driverFlagDiv.style.backgroundImage = `url(../asset/img/C/F1Flag/${driverData.nationality.toLowerCase()}.png)`;
   }
 
-  addTeamName(driverData.familyName.toLowerCase(), driverTeamP, `results`, nameDiv, infosDriverDiv);
+  addTeamName(driverData.familyName.toLowerCase(), driverTeamP, `results`, nameDiv);
 
   driverImage.src = `../asset/img/C/FichePilote/${driverData.familyName.toLowerCase()}.png`;
   driverImage.alt = driverData.familyName;
