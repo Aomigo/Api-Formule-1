@@ -1,5 +1,15 @@
  /* <Main */
 
+ /* 
+ @media screen and (min-width: 600px) {
+
+}
+
+@media screen and (min-width: 992px) {
+
+} 
+ */
+
  main {
    display: flex;
    flex-wrap: wrap;
@@ -7,86 +17,119 @@
  }
 
  .driver {
-  width: 630px;
-  height: 500px;
-  margin: 25px;
+   width: 630px;
+   height: 400px;
+   margin: 25px;
+   
+   @media screen and (min-width: 992px) {
+    height: 500px;
+   } 
  }
 
  .infos-driver {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 2px solid var(--color-black);
-  border-left: none;
-  border-right: none;
-  height: 100px;
-  padding: 15px 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border: 2px solid var(--color-black);
+   border-left: none;
+   border-right: none;
+   height: 100px;
+   padding: 15px 0;
 
-  .name {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-content: space-evenly;
-    height: 75px;
-    padding-left: 15px;
-    border-left: 5px solid var(--color-red);
+   .name {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     justify-content: space-evenly;
+     height: 75px;
+     padding-left: 15px;
+     border-left: 5px solid var(--color-red);
 
-    p {
-      margin: 0;
-      font-size: 18px;
-    }
+     p {
+       margin: 0;
+       font-size: 18px;
+     }
 
-    strong {
-      font-size: 25px;
-    }
-  }
+     strong {
+       font-size: 25px;
+     }
+   }
 
-  .driver-flag {
-    background: url(../img/C/F1Flag/Spanish.png) center;
-    background-size: cover;
-    border: 1px solid var(--color-black);
-    border-radius: 10px;
-    height: 65px;
-    width: 100px;
-  }
+   .driver-flag {
+     background: url(../img/C/F1Flag/Spanish.png) center;
+     background-size: cover;
+     border: 1px solid var(--color-black);
+     border-radius: 10px;
+     height: 65px;
+     width: 100px;
+     transition: 0.5s;
+
+     &:hover {
+      scale: 1.1;
+     }
+   }
  }
 
  .driver-page {
-  position: relative;
-  height: 350px;
+   position: relative;
+   height: 250px;
 
-  .driver-team {
-    position: absolute;
-    top: 0;
-  }
-
-  img:first-of-type {
-    width: 500px;
+   @media screen and (min-width: 600px) {
     height: 300px;
-    object-fit: contain;
-    object-position: center;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  } 
+   } 
+   
+   @media screen and (min-width: 992px) {
+    height: 350px;
+   } 
 
-  img:last-of-type {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-  }
+   .driver-team {
+     position: absolute;
+     top: 0;
+   }
+
+   img:first-of-type {
+     width: 200px;
+     height: 300px;
+     object-fit: contain;
+     object-position: bottom;
+     position: absolute;
+     right: 0;
+     bottom: 0;
+     transition: 1s ease-out;
+
+     &:hover {
+      background-color: rgba(0, 0, 0, 0.100);
+      border-radius: 50px;
+     }
+
+     @media screen and (min-width: 600px) {
+      width: 250px;
+     } 
+     
+     @media screen and (min-width: 992px) {
+      width: 300px;
+     } 
+   }
+
+   img:last-of-type {
+     position: absolute;
+     width: 120px;
+     left: 0;
+     bottom: 0;
+     transition: 0.3s;
+
+     &:hover {
+      scale: 1.1;
+     }
+
+     @media screen and (min-width: 600px) {
+      width: 175px;
+     }
+     
+     @media screen and (min-width: 992px) {
+      width: 200px;
+     } 
+   }
  }
-
-
-
- /* img:first-of-type {
-  width: 500px;
-  height: 300px;
-  object-fit: cover;
-  object-position: center;
-}  */
-
-
-
 
  /* Main> */

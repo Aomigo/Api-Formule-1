@@ -1,3 +1,4 @@
+const EEImge = document.querySelector('.easter-eggs')
 const otherDriversContainer = document.querySelector("#other-drivers");
 const Previous = document.querySelector(".previousSlide");
 const Next = document.querySelector(".nextSlide");
@@ -6,17 +7,18 @@ Previous.classList.add('hidden')
 const teamColors = {
   'mercedes': '#00D2BE',
   'ferrari': '#DC0000',
-  'red bull': '#1E41FF',
+  'red_bull': '#1E41FF',
   'mclaren': '#FF8700',
-  'astonmartin': '#006F62',
+  'aston_martin': '#006F62',
   'alpine': '#0090FF',
-  'alphatauri': '#2B4562',
-  'alfaromeo': '#900000',
+  'sauber': '#17f254',
+  'rb': '#1c3ace',
   'haas': '#FFFFFF',
   'williams': '#0082FA'
 };
 
 let translation = 0;
+let EE = 0;
 
 function addResult(e) {
   let race = e.MRData.RaceTable.Races[0];
@@ -38,12 +40,23 @@ function addResult(e) {
   winnerTimeElement.textContent = winner.Time.time;
   winnerPositionElement.textContent = winner.position;
 
-  if (teamColors.hasOwnProperty(winner.Constructor.name.toLowerCase())) {
-    const color = teamColors[winner.Constructor.name.toLowerCase()];
+  winnerImageElement.addEventListener('click', () => {
+    EE +=1; 
+    if (EE >= 10) {
+      EEImge.classList.remove('hidden')
+      EEImge.classList.add('animate__tada')
+    } if (EE >= 20) {
+      EE = 0;
+      EEImge.classList.add('hidden')
+      EEImge.classList.remove('animate__tada')
+    }
+  })
+
+  if (teamColors.hasOwnProperty(winner.Constructor.constructorId.toLowerCase())) {
+    const color = teamColors[winner.Constructor.constructorId.toLowerCase()];
     winnerTimeElement.style.color = color;
   }  
 
-  console.log(winner.Constructor.name.toLowerCase());
 
   otherDrivers.forEach((driver) => {
     const driverElement = document.createElement("div");
@@ -134,13 +147,22 @@ Previous.addEventListener('click', PreviousSlide);
 
 window.addEventListener('resize', updateTranslation);
 
+let intervalId;
+
+function startInterval() {
+  intervalId = setInterval(NextSlide, 5000);
+} 
+
 window.addEventListener("resize", () => {
   if (window.innerWidth < 600) {
     resetTranslation();
+    clearInterval(intervalId);
+  } else {
+    if (!intervalId) {
+      startInterval();
+    }
   }
 });
-
-setInterval(NextSlide, 5000)
 
 
 document.addEventListener("DOMContentLoaded", () => {

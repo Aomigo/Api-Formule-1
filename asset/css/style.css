@@ -13,18 +13,6 @@
 */
 
 :root {
-  /* Teams */
-  --color-mercedes: #00D2BE;
-  --color-ferrari: #DC0000;
-  --color-redbull: #1E41FF;
-  --color-mclaren: #FF8700;
-  --color-astonmartin: #006F62;
-  --color-alpine: #0090FF;
-  --color-alphatauri: #2B4562;
-  --color-alfaromeo: #900000;
-  --color-haas: #FFFFFF;
-  --color-williams: #0082FA;
-
   /* Custom */
   --color-lightpink: #DC07FF;
   --color-black: #1F1F27;
@@ -75,10 +63,10 @@ header {
     @media screen and (min-width: 600px) {
       margin-left: 100px;
     }
-    
+
     @media screen and (min-width: 992px) {
       margin-left: 200px;
-    } 
+    }
   }
 }
 
@@ -88,10 +76,10 @@ header {
   @media screen and (min-width: 600px) {
     width: 450px;
   }
-  
+
   @media screen and (min-width: 992px) {
     width: 550px;
-  } 
+  }
 }
 
 .links ul a {
@@ -129,11 +117,11 @@ header {
       position: absolute;
       left: 40px;
     }
-    
+
     @media screen and (min-width: 992px) {
       width: 300px;
       left: 75px;
-    }  
+    }
   }
 }
 
@@ -152,7 +140,7 @@ header {
 
   @media screen and (min-width: 992px) {
     right: 75px;
-  }  
+  }
 
   label {
     font-size: 35px;
@@ -169,13 +157,13 @@ header {
     @media screen and (min-width: 600px) {
       font-size: 17px;
     }
-    
+
     @media screen and (min-width: 992px) {
       font-size: 19px;
-    } 
+    }
 
     &::-webkit-input-placeholder {
-      font-size: 13px ;
+      font-size: 13px;
       text-transform: uppercase;
       vertical-align: middle;
     }
@@ -219,10 +207,6 @@ h1 {
     margin: 0 20px;
     flex-direction: row;
   }
-  
-  @media screen and (min-width: 992px) {
-  
-  } 
 
   img {
     width: 300px;
@@ -234,15 +218,16 @@ h1 {
       width: 250px;
       height: 100%;
     }
-    
+
     @media screen and (min-width: 992px) {
       width: 405px;
       height: 100%;
-    } 
+    }
   }
 
   div {
     margin-top: 15px;
+    padding: 0 15px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -255,10 +240,10 @@ h1 {
       width: fit-content;
       width: 250px;
     }
-    
+
     @media screen and (min-width: 992px) {
       width: 400px;
-    } 
+    }
 
     p {
       font-size: 45px;
@@ -269,10 +254,10 @@ h1 {
       @media screen and (min-width: 600px) {
         font-size: 25px;
       }
-      
+
       @media screen and (min-width: 992px) {
         font-size: 45px;
-      } 
+      }
     }
 
     h2 {
@@ -285,11 +270,40 @@ h1 {
       @media screen and (min-width: 600px) {
         font-size: 25px;
       }
-      
+
       @media screen and (min-width: 992px) {
         font-size: 45px;
-      } 
+      }
     }
+  }
+
+  .easter-eggs {
+    position: absolute;
+    /* top: 15px;
+    margin-right: 55px; */
+    margin-bottom: 300px;
+    height: 300px;
+    width: 300px;
+    background: url(../img/Mathieu.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+    animation-duration: 1.5s;
+  
+  
+    @media screen and (min-width: 600px) {
+      margin-bottom: 0;
+      top: 0px;
+      margin-right: 55px;
+      height: 250px;
+      width: 250px;
+    }
+  
+    @media screen and (min-width: 992px) {
+      height: 250px;
+      width: 250px;
+    }
+  
   }
 
   .tag-winner {
@@ -303,13 +317,9 @@ h1 {
     top: 5px;
     left: 15px;
 
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 600px) {}
 
-    }
-    
-    @media screen and (min-width: 992px) {
-    
-    } 
+    @media screen and (min-width: 992px) {}
   }
 
   .timeW {
@@ -322,10 +332,10 @@ h1 {
       top: 15px;
       right: 15px;
     }
-    
+
     @media screen and (min-width: 992px) {
       font-size: 35px;
-    } 
+    }
   }
 
   strong:last-child {
@@ -340,26 +350,24 @@ h1 {
       font-size: 75px;
       width: 250px;
     }
-    
+
     @media screen and (min-width: 992px) {
       font-size: 95px;
       width: 400px;
-    } 
+    }
   }
 }
 
 .overflow {
   width: 100%;
-  
+
   @media screen and (min-width: 600px) {
     position: relative;
     height: 200px;
     overflow: hidden;
   }
-  
-  @media screen and (min-width: 992px) {
-  
-  } 
+
+  @media screen and (min-width: 992px) {}
 }
 
 .other-drivers {
@@ -397,10 +405,8 @@ h1 {
     @media screen and (min-width: 600px) {
       margin: 0 15px
     }
-    
-    @media screen and (min-width: 992px) {
-    
-    } 
+
+    @media screen and (min-width: 992px) {}
 
     strong {
       font-size: 55px;
@@ -416,7 +422,7 @@ h1 {
       object-fit: contain;
       object-position: center;
     }
-  
+
     p {
       font-size: 20px;
     }
@@ -424,7 +430,9 @@ h1 {
 }
 
 @media screen and (min-width: 600px) {
-  .nextSlide, .previousSlide {
+
+  .nextSlide,
+  .previousSlide {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -437,11 +445,11 @@ h1 {
     cursor: pointer;
     z-index: 9999;
   }
-  
+
   .nextSlide {
     right: 15px;
   }
-  
+
   .previousSlide {
     left: 15px;
   }
