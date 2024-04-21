@@ -9,7 +9,7 @@ const teamColors = {
   'alpine': '#0090FF',
   'sauber': '#17f254',
   'rb': '#1c3ace',
-  'haas': '#FFFFFF',
+  'haas': '#00000',
   'williams': '#0082FA'
 };
 
@@ -24,10 +24,6 @@ function addTeamName(driver, team, apiName, divBorderColor, driverInfos) {
           if (teamColors.hasOwnProperty(result.Constructor.constructorId.toLowerCase())) {
             const color = teamColors[result.Constructor.constructorId.toLowerCase()];
             divBorderColor.style.borderColor = color;
-            if (result.Constructor.constructorId.toLowerCase() === 'haas') {
-              divBorderColor.style.marginLeft = "5px";
-              driverInfos.style.backgroundColor = 'rgba(0, 0, 0, 0.100)'
-            }
           }
         }
       });
@@ -90,17 +86,64 @@ function createDriverElement(driverData) {
   return driverDiv;
 }
 
+function createLoadingScreen() {
+  const loadingScreen = document.createElement('div');
+  const loadingDots = document.createElement('div');
+
+  loadingScreen.classList.add('loading-screen');
+  loadingDots.classList.add('loading-dots');
+
+  loadingDots.textContent = 'Loading'
+
+  for (let i = 0; i < 3; i++) {
+    const dot = document.createElement('span');
+    dot.textContent = '.'
+    loadingDots.appendChild(dot);
+  }
+
+  loadingScreen.appendChild(loadingDots);
+
+  return loadingScreen;
+}
+
+function showErrorScreen(container, errorMessage) {
+  container.innerHTML = '';
+  const errorScreen = document.createElement('div');
+  const imgError = document.createElement('img')
+  const pError = document.createElement('p')
+
+  imgError.src = `../asset/img/error.png`
+  pError.textContent = errorMessage;
+
+  errorScreen.classList.add('error-screen')
+  errorScreen.appendChild(imgError);
+  errorScreen.appendChild(pError);
+  container.appendChild(errorScreen);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  const mainContainer = document.querySelector('main');
+  const h1 = document.querySelector('h1');
+  const loadingScreen = createLoadingScreen();
+  mainContainer.appendChild(loadingScreen);
+
   fetch(`${apiUrl}drivers.json`)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
     .then((data) => {
-      const driversContainer = document.querySelector('main');
+      mainContainer.removeChild(loadingScreen);
+      h1.classList.remove('hidden')
       data.MRData.DriverTable.Drivers.forEach(driverData => {
         const driverElement = createDriverElement(driverData);
-        driversContainer.appendChild(driverElement);
+        mainContainer.appendChild(driverElement);
       });
     })
     .catch((error) => {
+      showErrorScreen(mainContainer, 'An error occurred while loading data.');
       console.error("Error fetching data:", error);
     });
 });

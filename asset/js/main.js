@@ -165,13 +165,63 @@ window.addEventListener("resize", () => {
 });
 
 
+function createLoadingScreen() {
+  const loadingScreen = document.createElement('div');
+  const loadingDots = document.createElement('div');
+
+  loadingScreen.classList.add('loading-screen');
+  loadingScreen.classList.add('loading-dots');
+
+  loadingDots.textContent = 'Loading'
+
+  for (let i = 0; i < 3; i++) {
+    const dot = document.createElement('span');
+    dot.textContent = '.'
+    loadingDots.appendChild(dot);
+  }
+
+  loadingScreen.appendChild(loadingDots);
+
+  return loadingScreen;
+}
+
+function showErrorScreen(container, errorMessage) {
+  container.innerHTML = '';
+  const errorScreen = document.createElement('div');
+  const imgError = document.createElement('img')
+  const pError = document.createElement('p')
+
+  imgError.src = `../asset/img/error.png`
+  pError.textContent = errorMessage;
+
+  errorScreen.classList.add('error-screen')
+  errorScreen.appendChild(imgError);
+  errorScreen.appendChild(pError);
+  container.appendChild(errorScreen);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  const mainContainer = document.querySelector('main');
+  const resultsWrap = document.querySelector('.result');
+  const loadingScreen = createLoadingScreen();
+  mainContainer.appendChild(loadingScreen);
+
   fetch("http://ergast.com/api/f1/current/last/results.json")
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
     .then((data) => {
+      mainContainer.removeChild(loadingScreen);
+      resultsWrap.classList.remove('hidden');
       addResult(data);
     })
     .catch((error) => {
+      showErrorScreen(mainContainer, 'An error occurred while loading data.');
       console.error("Error fetching data:", error);
     });
 });
+
+

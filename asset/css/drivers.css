@@ -1,19 +1,13 @@
  /* <Main */
 
- /* 
- @media screen and (min-width: 600px) {
-
-}
-
-@media screen and (min-width: 992px) {
-
-} 
- */
-
  main {
    display: flex;
    flex-wrap: wrap;
    justify-content: space-evenly;
+ }
+
+ h1 {
+  width: 100%;
  }
 
  .driver {
@@ -89,12 +83,13 @@
 
    img:first-of-type {
      width: 200px;
-     height: 300px;
+     height: 200px;
      object-fit: contain;
      object-position: bottom;
      position: absolute;
      right: 0;
      bottom: 0;
+     cursor: pointer;
      transition: 1s ease-out;
 
      &:hover {
@@ -103,11 +98,13 @@
      }
 
      @media screen and (min-width: 600px) {
+      height: 250px;
       width: 250px;
      } 
      
      @media screen and (min-width: 992px) {
       width: 300px;
+      height: 300px;
      } 
    }
 
