@@ -14,7 +14,7 @@ h1 {
   width: 630px;
   height: 200px;
   margin: 0 15px;
-  background: url(../img/C/MonoSVG/ferrari.svg) center no-repeat;
+  background: url(../img/C/MonoSVG/ferrari.svg) no-repeat;
   background-size: contain;
 
   .team-infos {
@@ -32,12 +32,22 @@ h1 {
       padding: 10px 0 10px 10px;
       display: flex;
       align-items: center;
+      transition: 0.3s;
+      
+      &:hover {
+        padding-left: 15px;
+      }
     }
 
     img {
       width: 75px;
       height: 75px;
       object-fit: contain;
+      transition: 0.5s;
+
+      &:hover {
+        scale: 1.1;
+      }
     }
   }
 
@@ -52,10 +62,16 @@ h1 {
       align-items: center;
       justify-content: space-evenly;
       width: 125px;
+      background-color: var(--color-white);
       border: 2px solid var(--color-red);
       border-radius: 15px;
       text-transform: capitalize;
       padding: 5px 10px;
+      transition: 0.3s;
+
+      &:hover {
+        filter: brightness(90%);
+      }
     }
   }
 }

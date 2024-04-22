@@ -105,6 +105,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  z-index: -2;
 
   @media screen and (min-width: 600px) {
     flex-direction: row;
@@ -456,19 +457,10 @@ h1 {
   }
 }
 
-.loading-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-wrap: wrap;
-  height: 72vh;
-  width: 100%;
-  background-color: #f0f0f0;
-  z-index: 2;
-}
-
+.loading-screen,
 .error-screen {
+  position: absolute;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -476,10 +468,31 @@ h1 {
   text-align: center;
   flex-wrap: wrap;
   font-size: 20px;
-  height: 72vh;
+  height: 100vh;
   width: 100%;
   background-color: #f0f0f0;
-  z-index: 2;
+  z-index: -1;
+
+  .loading-dots {
+    font-size: 24px;
+  }
+  
+  .loading-dots span {
+    opacity: 0;
+    margin: 0 1px;
+    animation: appearAndDisappear 2s infinite;
+  }
+  
+  .loading-dots span:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  
+  .loading-dots span:nth-child(3) {
+    animation-delay: 1s;
+  }  
+}
+
+.error-screen {
   transition: 0.5s;
 
   img {
@@ -499,24 +512,6 @@ h1 {
       transform: translateY(-10px);
     }
   }
-}
-
-.loading-dots {
-  font-size: 24px;
-}
-
-.loading-dots span {
-  opacity: 0;
-  margin: 0 1px;
-  animation: appearAndDisappear 2s infinite;
-}
-
-.loading-dots span:nth-child(2) {
-  animation-delay: 0.5s;
-}
-
-.loading-dots span:nth-child(3) {
-  animation-delay: 1s;
 }
 
 @keyframes appearAndDisappear {
