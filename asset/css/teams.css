@@ -1,0 +1,64 @@
+/* <Main */
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+h1 {
+  width: 100%;
+}
+
+.teams {
+  width: 630px;
+  height: 200px;
+  margin: 0 15px;
+  background: url(../img/C/MonoSVG/ferrari.svg) center no-repeat;
+  background-size: contain;
+
+  .team-infos {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid var(--color-black);
+    border-left: none;
+    border-right: none;
+    align-items: center;
+    height: 85px;
+
+    h2 {
+      border-left: 3px solid var(--color-red);
+      text-transform: capitalize;
+      padding: 10px 0 10px 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+    }
+  }
+
+  .view-more__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 125px;
+      border: 2px solid var(--color-red);
+      border-radius: 15px;
+      text-transform: capitalize;
+      padding: 5px 10px;
+    }
+  }
+}
+
+/* Main> */
+
