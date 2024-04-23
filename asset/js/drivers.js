@@ -29,6 +29,9 @@ function addTeamName(driver, team, apiName, divBorderColor) {
             const color = teamColors[result.Constructor.constructorId.toLowerCase()];
             divBorderColor.style.borderColor = color;
           }
+          if (result.Constructor.name.toLowerCase() === 'sauber') {
+            team.textContent = `Kick • ${result.Constructor.name}`
+          }
         }
       });
     })
@@ -37,7 +40,6 @@ function addTeamName(driver, team, apiName, divBorderColor) {
       team.textContent = 'Error'
     });
 }
-
 
 function createDriverElement(driverData) {
   const driverDiv = document.createElement('div');
@@ -98,7 +100,6 @@ function createLoadingScreen() {
   loadingScreen.classList.add('loading-screen');
   loadingDots.classList.add('loading-dots');
 
-  loadingDots.textContent = 'Loading'
 
   for (let i = 0; i < 3; i++) {
     const dot = document.createElement('span');
@@ -111,26 +112,33 @@ function createLoadingScreen() {
   return loadingScreen;
 }
 
-function showErrorScreen(container, errorMessage) {
+function showErrorScreen(container, errorMessage, errorType) {
   container.innerHTML = '';
   const errorScreen = document.createElement('div');
-  const imgError = document.createElement('img')
-  const pError = document.createElement('p')
+  const imgError = document.createElement('img');
+  const pError = document.createElement('p');
+  const pErrorType = document.createElement('strong');
 
-  imgError.src = `../asset/img/error.png`
+  imgError.src = `../asset/img/error.png`;
   pError.textContent = errorMessage;
+  pErrorType.textContent = errorType;
 
-  errorScreen.classList.add('error-screen')
+  errorScreen.classList.add('error-screen');
   errorScreen.appendChild(imgError);
   errorScreen.appendChild(pError);
+  errorScreen.appendChild(pErrorType);
   container.appendChild(errorScreen);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const mainContainer = document.querySelector('main');
+  const mainContainer = document.querySelector('.result');
   const h1 = document.querySelector('h1');
   const loadingScreen = createLoadingScreen();
   mainContainer.appendChild(loadingScreen);
+
+  let driversData;
+  let ascendingOrder = true;
+  const sortAZBtn = document.querySelector('.sort-AZ');
 
   fetch(`${apiUrl}drivers.json`)
     .then((response) => {
@@ -141,14 +149,42 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then((data) => {
       mainContainer.removeChild(loadingScreen);
-      h1.classList.remove('hidden')
-      data.MRData.DriverTable.Drivers.forEach(driverData => {
+      h1.classList.remove('hidden');
+      sortAZBtn.classList.remove('hidden')
+      driversData = data.MRData.DriverTable.Drivers;
+
+      driversData.forEach(driverData => {
         const driverElement = createDriverElement(driverData);
         mainContainer.appendChild(driverElement);
       });
+
+      sortAZBtn.addEventListener('click', () => {
+        sortAZBtn.classList.toggle('sort-select');
+        driversData.sort((a, b) => {
+          const firstNameA = a.familyName.toLowerCase();
+          const firstNameB = b.familyName.toLowerCase();
+          if (ascendingOrder) {
+            sortAZBtn.textContent = `Z - A`
+            return firstNameB.localeCompare(firstNameA);
+          } else {
+            sortAZBtn.textContent = `A - Z`
+            return firstNameA.localeCompare(firstNameB);
+          }
+        });
+
+        ascendingOrder = !ascendingOrder;
+
+        mainContainer.innerHTML = '';
+        driversData.forEach(driverData => {
+          const driverElement = createDriverElement(driverData);
+          mainContainer.appendChild(driverElement);
+        });
+      });
     })
     .catch((error) => {
-      showErrorScreen(mainContainer, 'An error occurred while loading data.');
+      showErrorScreen(mainContainer, 'An error occurred while loading data.', error);
       console.error("Error fetching data:", error);
     });
 });
+
+

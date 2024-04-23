@@ -1,9 +1,14 @@
+.overflow-hidd {
+  overflow: hidden;
+}
+
 /* <Main */
 
 main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  position: static;
 }
 
 h1 {
@@ -78,3 +83,21 @@ h1 {
 
 /* Main> */
 
+/* Teams Overlay */
+
+.team-overlay__wrap {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #00000054;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .teams {
+    background-color: var(--color-white);
+    width: 500px;
+    height: 500px;
+  }
+}

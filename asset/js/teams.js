@@ -28,9 +28,10 @@ function createTeams(teamsData) {
   teams.classList.add('teams');
   teamInfos.classList.add('team-infos');
   viewMoreWrap.classList.add('view-more__wrap');
+  viewMoreBtn.classList.add('buttton-VM')
 
+  teams.setAttribute('data-team', `${$data.constructorId}`);
   teams.style.backgroundImage = `url("../asset/img/C/MonoPNG/${$data.constructorId}.png")`;
-
   teamName.textContent = $data.name;
   teamImg.src = `../asset/img/C/TeamsPNG/${$data.constructorId}.png`;
   viewMoreBtn.innerHTML = `View More ${iFrameVM}`;
@@ -47,8 +48,11 @@ function createTeams(teamsData) {
   }
 
   if($data.constructorId.toLowerCase() === 'haas' || 'williams') {
-    teamImg.style.borderRadius = '15px'
     teamImg.style.objectFit = 'contain'
+  }
+
+  if ($data.constructorId.toLowerCase() === 'sauber') {
+    teamName.textContent = `Kick • ${$data.name}`
   }
 
 
@@ -70,7 +74,6 @@ function createLoadingScreen() {
   loadingScreen.classList.add('loading-screen');
   loadingDots.classList.add('loading-dots');
 
-  loadingDots.textContent = 'Loading'
 
   for (let i = 0; i < 3; i++) {
     const dot = document.createElement('span');
@@ -83,18 +86,21 @@ function createLoadingScreen() {
   return loadingScreen;
 }
 
-function showErrorScreen(container, errorMessage) {
+function showErrorScreen(container, errorMessage, errorType) {
   container.innerHTML = '';
   const errorScreen = document.createElement('div');
-  const imgError = document.createElement('img')
-  const pError = document.createElement('p')
+  const imgError = document.createElement('img');
+  const pError = document.createElement('p');
+  const pErrorType = document.createElement('strong');
 
-  imgError.src = `../asset/img/error.png`
+  imgError.src = `../asset/img/error.png`;
   pError.textContent = errorMessage;
+  pErrorType.textContent = errorType;
 
-  errorScreen.classList.add('error-screen')
+  errorScreen.classList.add('error-screen');
   errorScreen.appendChild(imgError);
   errorScreen.appendChild(pError);
+  errorScreen.appendChild(pErrorType);
   container.appendChild(errorScreen);
 }
 
@@ -117,11 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
       data.MRData.ConstructorTable.Constructors.forEach(teamsData => {
         const teamElement = createTeams(teamsData);
         mainContainer.appendChild(teamElement);
-        console.log(teamsData.constructorId);
       })
     })
     .catch((error) => {
-      showErrorScreen(mainContainer, 'An error occurred while loading data.');
+      showErrorScreen(mainContainer, 'An error occurred while loading data.', error);
       console.error("Error fetching data:", error);
     });
 });

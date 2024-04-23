@@ -164,15 +164,13 @@ window.addEventListener("resize", () => {
   }
 });
 
-
 function createLoadingScreen() {
   const loadingScreen = document.createElement('div');
   const loadingDots = document.createElement('div');
 
   loadingScreen.classList.add('loading-screen');
-  loadingScreen.classList.add('loading-dots');
+  loadingDots.classList.add('loading-dots');
 
-  loadingDots.textContent = 'Loading'
 
   for (let i = 0; i < 3; i++) {
     const dot = document.createElement('span');
@@ -185,18 +183,21 @@ function createLoadingScreen() {
   return loadingScreen;
 }
 
-function showErrorScreen(container, errorMessage) {
+function showErrorScreen(container, errorMessage, errorType) {
   container.innerHTML = '';
   const errorScreen = document.createElement('div');
-  const imgError = document.createElement('img')
-  const pError = document.createElement('p')
+  const imgError = document.createElement('img');
+  const pError = document.createElement('p');
+  const pErrorType = document.createElement('strong');
 
-  imgError.src = `../asset/img/error.png`
+  imgError.src = `../asset/img/error.png`;
   pError.textContent = errorMessage;
+  pErrorType.textContent = errorType;
 
-  errorScreen.classList.add('error-screen')
+  errorScreen.classList.add('error-screen');
   errorScreen.appendChild(imgError);
   errorScreen.appendChild(pError);
+  errorScreen.appendChild(pErrorType);
   container.appendChild(errorScreen);
 }
 
@@ -219,9 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
       addResult(data);
     })
     .catch((error) => {
-      showErrorScreen(mainContainer, 'An error occurred while loading data.');
+      showErrorScreen(mainContainer, 'An error occurred while loading data.', error);
       console.error("Error fetching data:", error);
     });
 });
-
-
