@@ -4,33 +4,40 @@
    display: flex;
    flex-wrap: wrap;
    justify-content: space-evenly;
+ }
+
+ .other-infos {
+   display: flex;
+   justify-content: center;
+   text-align: center;
    position: relative;
+   width: 100%;
  }
 
  .result {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
  }
 
  h1 {
-  margin-top: 50px;
-  width: 100%;
+   margin-top: 50px;
+   width: 100%;
 
-  @media screen and (min-width: 600px) {
-    margin-top: 25px;
-   } 
+   @media screen and (min-width: 600px) {
+     margin-top: 25px;
+   }
  }
 
  .driver {
    width: 630px;
    height: 400px;
    margin: 25px;
-   
+
    @media screen and (min-width: 992px) {
-    height: 500px;
-   } 
+     height: 500px;
+   }
  }
 
  .infos-driver {
@@ -42,6 +49,7 @@
    border-right: none;
    height: 100px;
    padding: 15px 0;
+   z-index: -100;
 
    .name {
      display: flex;
@@ -72,7 +80,7 @@
      transition: 0.5s;
 
      &:hover {
-      scale: 1.1;
+       scale: 1.1;
      }
    }
  }
@@ -82,12 +90,12 @@
    height: 250px;
 
    @media screen and (min-width: 600px) {
-    height: 300px;
-   } 
-   
+     height: 300px;
+   }
+
    @media screen and (min-width: 992px) {
-    height: 350px;
-   } 
+     height: 350px;
+   }
 
    .driver-team {
      position: absolute;
@@ -98,11 +106,11 @@
      transition: 0.3s ease;
 
      &:hover {
-      transform: translateX(10px);
-      color: blue;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+       transform: translateX(10px);
+       color: blue;
+       text-decoration: underline;
+       text-underline-offset: 3px;
+     }
    }
 
    img:first-of-type {
@@ -117,19 +125,19 @@
      transition: 1s ease-out;
 
      &:hover {
-      background-color: rgba(0, 0, 0, 0.100);
-      border-radius: 50px;
+       background-color: rgba(0, 0, 0, 0.100);
+       border-radius: 50px;
      }
 
      @media screen and (min-width: 600px) {
-      height: 250px;
-      width: 250px;
-     } 
-     
+       height: 250px;
+       width: 250px;
+     }
+
      @media screen and (min-width: 992px) {
-      width: 300px;
-      height: 300px;
-     } 
+       width: 300px;
+       height: 300px;
+     }
    }
 
    img:last-of-type {
@@ -140,54 +148,77 @@
      transition: 0.3s;
 
      &:hover {
-      scale: 1.1;
+       scale: 1.1;
      }
 
      @media screen and (min-width: 600px) {
-      width: 175px;
+       width: 175px;
      }
-     
+
      @media screen and (min-width: 992px) {
-      width: 200px;
-     } 
+       width: 200px;
+     }
    }
  }
 
  .sort {
-  display: flex;
-  justify-content: space-evenly;
-  position: absolute;
-  top: 10px;
-  width: 200px;
-  height: fit-content;
-  flex-wrap: wrap;
+   display: flex;
+   justify-content: space-evenly;
+   position: absolute;
+   top: 10px;
+   width: 200px;
+   height: fit-content;
+   flex-wrap: wrap;
 
-  @media screen and (min-width: 600px) {
-    top: 15px;
-    left: 25px;
-   } 
+   @media screen and (min-width: 600px) {
+     top: 15px;
+     left: 25px;
+   }
 
-  .sort-AZ,
-  .sort-point {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    min-width: 75px;
-    height: 35px;
-    font-weight: bold;
-    color: var(--color-black);
-    border: 2px solid var(--color-black);
-    background-color: var(--color-white);
-    border-radius: 15px;
-  }
+   .sort-AZ {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     min-width: 75px;
+     height: 35px;
+     font-weight: bold;
+     color: var(--color-black);
+     border: 2px solid var(--color-black);
+     background-color: var(--color-white);
+     border-radius: 15px;
+     animation: bounceInLeft 1.5s 1;
+     transition: 0.3s;
+   }
 
-  .sort-select {
-    color: var(--color-white);
-    background-color: var(--color-black);
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
+   .sort-select {
+     color: var(--color-white);
+     background-color: var(--color-black);
+     border: none;
+     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   }
+ }
+
+ #scrollButton {
+   display: none;
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   width: 40px;
+   height: 40px;
+   background-color: var(--color-red);
+   color: #fff;
+   border: none;
+   border-radius: 50%;
+   font-size: 24px;
+   cursor: pointer;
+   z-index: 1000;
+   animation: backInUp 0.7s 1;
+   transition: 0.3s;
+
+   &:hover {
+    background-color: rgb(116, 32, 32);
+   }
  }
 
  /* Main> */

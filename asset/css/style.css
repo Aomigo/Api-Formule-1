@@ -87,6 +87,7 @@ header {
       object-fit: contain;
       object-position: center;
       border-right: 1px solid var(--color-black);
+      cursor: pointer;
     }
   }
 }
@@ -288,9 +289,8 @@ h1 {
   }
 
   .easter-eggs {
+    display: none;
     position: absolute;
-    /* top: 15px;
-    margin-right: 55px; */
     margin-bottom: 300px;
     height: 300px;
     width: 300px;
@@ -298,7 +298,7 @@ h1 {
     background-size: cover;
     background-position: center;
     border-radius: 100%;
-    animation-duration: 1.5s;
+    animation: tada 1s 1;
   
   
     @media screen and (min-width: 600px) {

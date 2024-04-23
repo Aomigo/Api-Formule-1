@@ -87,9 +87,10 @@ h1 {
 
 .team-overlay__wrap {
   position: absolute;
+  margin: none;
   top: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: #00000054;
   display: flex;
   align-items: center;
@@ -97,7 +98,10 @@ h1 {
 
   .teams {
     background-color: var(--color-white);
-    width: 500px;
+    margin: 0;
+    padding: 15px;
+    border-radius: 25px;
+    width: 700px;
     height: 500px;
   }
 }

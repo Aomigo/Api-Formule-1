@@ -63,6 +63,15 @@ function createTeams(teamsData) {
   teams.appendChild(teamInfos);
   teams.appendChild(viewMoreWrap);
 
+  viewMoreBtn.addEventListener('click', () => {
+    console.log('caca');
+  })
+
+
+
+
+
+
   return teams;
 }
 

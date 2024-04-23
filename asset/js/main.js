@@ -43,12 +43,10 @@ function addResult(e) {
   winnerImageElement.addEventListener('click', () => {
     EE +=1; 
     if (EE >= 10) {
-      EEImge.classList.remove('hidden')
-      EEImge.classList.add('animate__tada')
+      EEImge.style.display = 'block'
     } if (EE >= 20) {
       EE = 0;
-      EEImge.classList.add('hidden')
-      EEImge.classList.remove('animate__tada')
+      EEImge.style.display = 'none'
     }
   })
 
