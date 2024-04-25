@@ -1,3 +1,7 @@
+import { addZIndexBackground } from './loadingAsset.js';
+
+import { removeZIndexBackground } from './loadingAsset.js';
+
 const apiUrl = 'http://ergast.com/api/f1/current/last/';
 
 const teamColors = {
@@ -131,6 +135,7 @@ function showErrorScreen(container, errorMessage, errorType) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  addZIndexBackground();
   const mainContainer = document.querySelector('.result');
   const h1 = document.querySelector('h1');
   const loadingScreen = createLoadingScreen();
@@ -148,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then((data) => {
+      removeZIndexBackground();
       mainContainer.removeChild(loadingScreen);
       h1.classList.remove('hidden');
       sortAZBtn.classList.remove('hidden')

@@ -7,6 +7,7 @@
   <title>Formula 1 | Teams</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <meta name='description' content='Site sur les récentes courses et toutes les infos sur la F1 | School Project !'>
+  <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/normalize.css'>
   <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/style.css'>
@@ -48,7 +49,7 @@
     <div class="search-bar__wrap">
       <img src="../asset/img/f1_logo.svg" alt="F1 Logo">
       <div class="search-bar">
-        <label for="search-bar-input"><i class="fa-solid fa-magnifying-glass"></i></label>
+        <label for="search-bar-input"><i class="lni lni-search-alt"></i></label>
         <input type="search" id="search-bar-input" placeholder="GP Japon">
       </div>
     </div>
@@ -60,19 +61,10 @@
 
   <main>
     <h1 class="hidden">Teams :</h1>
-    <!-- <div class="teams">
-      <div class="team-infos">
-        <h2>ferrari</h2>
-        <img src="../asset/img/C/TeamsPNG/ferrari.png" alt="team logo">
-      </div>
-      <div class="view-more__wrap">
-        <button>view more <i class="fa-solid fa-chevron-right"></i></button>
-      </div>
-    </div> -->
     <div class="team-overlay__wrap hidden">
 
     </div>
-          <!-- 
+    <!-- 
         <div class="teams">
         <div class="team-infos">
           <h2>ferrari</h2>
@@ -101,9 +93,9 @@
   <!-- #Main -->
 
   <!-- #Script -->
-  <script src="https://kit.fontawesome.com/61d24657b9.js" crossorigin="anonymous"></script>
-  <script src="../asset/js/teams.js"></script>
+  <script type="module" src="../asset/js/teams.js"></script>
   <script src="../asset/js/teams-overlay.js"></script>
+  <script type="module" src="../asset/js/loadingAsset.js"></script>
 
 </body>
 

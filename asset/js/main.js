@@ -1,3 +1,8 @@
+import { addZIndexBackground } from './loadingAsset.js';
+
+import { removeZIndexBackground } from './loadingAsset.js';
+
+
 const EEImge = document.querySelector('.easter-eggs')
 const otherDriversContainer = document.querySelector("#other-drivers");
 const Previous = document.querySelector(".previousSlide");
@@ -121,7 +126,7 @@ function updateTranslation() {
       Previous.classList.add('hidden')
     } else if (translation < -maxTranslation) {
       translation = -maxTranslation;
-      Next.classList.add('hidden')
+      Next.classList.add('hidden');
     }
 
     otherDrivers.style.transform = `translateX(${translation}px)`;
@@ -200,6 +205,7 @@ function showErrorScreen(container, errorMessage, errorType) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  addZIndexBackground()
   const mainContainer = document.querySelector('main');
   const resultsWrap = document.querySelector('.result');
   const loadingScreen = createLoadingScreen();
@@ -213,6 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then((data) => {
+      removeZIndexBackground()
       mainContainer.removeChild(loadingScreen);
       resultsWrap.classList.remove('hidden');
       addResult(data);

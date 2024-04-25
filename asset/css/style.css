@@ -57,6 +57,7 @@ header {
   top: 0;
   background-color: var(--color-white);
   width: 100%;
+  z-index: 2;
 
   ul {
     display: flex;
@@ -115,7 +116,6 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  z-index: -2;
 
   @media screen and (min-width: 600px) {
     flex-direction: row;
@@ -143,6 +143,7 @@ header {
   padding: 15px;
   border-radius: 20px;
   height: 50px;
+  z-index: 1;
 
   @media screen and (min-width: 600px) {
     position: absolute;
@@ -156,6 +157,12 @@ header {
   label {
     font-size: 35px;
     margin-right: 12px;
+  }
+
+  i {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
   }
 
   input[type='search'] {

@@ -1,3 +1,7 @@
+import { addZIndexBackground } from './loadingAsset.js';
+
+import { removeZIndexBackground } from './loadingAsset.js';
+
 const apiUrl = 'http://ergast.com/api/f1/current/last/';
 
 let iFrameVM = `<i class="fa-solid fa-chevron-right"></i>`
@@ -114,6 +118,7 @@ function showErrorScreen(container, errorMessage, errorType) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  addZIndexBackground();
   const mainContainer = document.querySelector('main');
   const h1 = document.querySelector('h1');
   const loadingScreen = createLoadingScreen();
@@ -127,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then((data) => {
+      removeZIndexBackground();
       h1.classList.remove('hidden');
       mainContainer.removeChild(loadingScreen);
       data.MRData.ConstructorTable.Constructors.forEach(teamsData => {
