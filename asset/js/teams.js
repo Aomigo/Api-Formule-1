@@ -1,10 +1,10 @@
 import { addZIndexBackground } from './loadingAsset.js';
-
 import { removeZIndexBackground } from './loadingAsset.js';
+import { createTeamOverlay } from './teams-overlay.js';
 
 const apiUrl = 'http://ergast.com/api/f1/current/last/';
 
-let iFrameVM = `<i class="fa-solid fa-chevron-right"></i>`
+let iFrameVM = `<i class="lni lni-arrow-right"></i>`
 
 const teamColors = {
   'mercedes': '#00D2BE',
@@ -32,7 +32,7 @@ function createTeams(teamsData) {
   teams.classList.add('teams');
   teamInfos.classList.add('team-infos');
   viewMoreWrap.classList.add('view-more__wrap');
-  viewMoreBtn.classList.add('buttton-VM')
+  viewMoreBtn.classList.add('buttton-VM');
 
   teams.setAttribute('data-team', `${$data.constructorId}`);
   teams.style.backgroundImage = `url("../asset/img/C/MonoPNG/${$data.constructorId}.png")`;
@@ -68,13 +68,8 @@ function createTeams(teamsData) {
   teams.appendChild(viewMoreWrap);
 
   viewMoreBtn.addEventListener('click', () => {
-    console.log('caca');
+    createTeamOverlay($data.constructorId)
   })
-
-
-
-
-
 
   return teams;
 }
