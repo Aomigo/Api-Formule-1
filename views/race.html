@@ -4,14 +4,14 @@
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Formula 1 | Drivers</title>
+  <title>Formula 1 | Menu</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <meta name='description' content='Site sur les récentes courses et toutes les infos sur la F1 | School Project !'>
   <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/normalize.css'>
   <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/style.css'>
-  <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/drivers.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/race.css'>
 </head>
 
 <body>
@@ -29,13 +29,13 @@
             <a href="menu.html">Menu</a>
           </li>
           <li>
-            <a href="drivers.html" class="this-page">Drivers</a>
+            <a href="drivers.html">Drivers</a>
           </li>
           <li>
             <a href="teams.html">Teams</a>
           </li>
           <li>
-            <a href="race.html">Race</a>
+            <a href="race.html" class="this-page">Race</a>
           </li>
           <li>
             <a href="https://fr.wikipedia.org/wiki/Formule_1" target="_blank">F1 Story</a>
@@ -46,13 +46,6 @@
         </ul>
       </nav>
     </div>
-    <div class="search-bar__wrap">
-      <img src="../asset/img/f1_logo.svg" alt="F1 Logo">
-      <div class="search-bar">
-        <label for="search-bar-input"><i class="lni lni-search-alt"></i></label>
-        <input type="search" id="search-bar-input" placeholder="GP Japon">
-      </div>
-    </div>
   </header>
 
   <!-- #Header -->
@@ -60,40 +53,16 @@
   <!-- #Main -->
 
   <main>
-    <div class="other-infos">
-      <h1 class="hidden">Drivers :</h1>
-      <div class="sort">
-        <button class="sort-AZ sort-select hidden">A - Z</button>
-      </div>
+    <div class="map">
     </div>
-    <div class="result">
-
+    <div class="races">
     </div>
-    <!-- <div class="driver">
-      <div class="infos-driver">
-        <div class="name">
-          <p class="first-name">Carlos</p>
-          <strong class="last-name">Sainz</strong>
-        </div>
-        <div class="driver-flag"></div>
-      </div>
-      <div class="driver-page">
-        <p class="driver-team">Ferrari</p>
-        <img src="../asset/img/C/FichePilote/sainz.png" alt="Sainz">
-        <img src="../asset/img/C/PiloteSVG/carlosainz.svg" alt="number of Sainz">
-      </div>
-    </div> -->
   </main>
 
   <!-- #Main -->
 
-  <!-- Go Top -->
-
-  <button id="scrollButton" style="display: none;">↑</button>
-
-  <!-- #Script -->
-  <script type="module" src="../asset/js/drivers.js"></script>
-  <script type="module" src="../asset/js/loadingAsset.js"></script>
+  <!-- #Script -->  
+  <script type="module" src="../asset/js/map.js"></script>
 
 </body>
 

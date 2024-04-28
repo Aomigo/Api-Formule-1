@@ -117,8 +117,8 @@ h1 {
       align-items: center;
       justify-content: center;
       position: absolute;
-      right: 15px;
-      bottom: 15px;
+      right: 10px;
+      bottom: 10px;
       height: 35px;
       width: 35px;
       background-color: var(--color-red);

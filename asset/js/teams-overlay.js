@@ -30,12 +30,12 @@ export function createTeamOverlay(teamName) {
   teamDriversDiv.classList.add('team-drivers');
   loadingBar.classList.add('loading-bar');
 
-  teamNameHeading.textContent = teamName;
-  teamLogoImg.src = `../asset/img/C/TeamsPNG/${teamName.toLowerCase()}.png`;
+  teamNameHeading.textContent = teamName.name;
+  teamLogoImg.src = `../asset/img/C/TeamsPNG/${teamName.constructorId.toLowerCase()}.png`;
   teamLogoImg.alt = 'team logo';
 
-  if (teamColors.hasOwnProperty(teamName.toLowerCase())) {
-    const color = teamColors[teamName.toLowerCase()];
+  if (teamColors.hasOwnProperty(teamName.constructorId.toLowerCase())) {
+    const color = teamColors[teamName.constructorId.toLowerCase()];
     teamNameHeading.style.borderColor = color;
     teamsDiv.style.borderColor = color;
   }
@@ -51,7 +51,7 @@ export function createTeamOverlay(teamName) {
     .then(data => {
       teamDriversDiv.removeChild(loadingBar);
       data.MRData.RaceTable.Races[0].Results.forEach(driver => {
-        if (driver.Constructor.constructorId === teamName.toLowerCase()) {
+        if (driver.Constructor.constructorId === teamName.constructorId.toLowerCase()) {
           const driverDiv = document.createElement('div');
           const nameDiv = document.createElement('div');
           const firstNameP = document.createElement('p');

@@ -68,7 +68,7 @@ function createTeams(teamsData) {
   teams.appendChild(viewMoreWrap);
 
   viewMoreBtn.addEventListener('click', () => {
-    createTeamOverlay($data.constructorId)
+    createTeamOverlay($data)
   })
 
   return teams;
